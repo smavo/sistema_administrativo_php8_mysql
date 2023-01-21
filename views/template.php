@@ -1,23 +1,3 @@
-<?php
-session_start();
-
-/*=============================================
-Capturar las rutas de la URL
-=============================================*/
-
-$routesArray = explode("/", $_SERVER['REQUEST_URI']);
-$routesArray = array_filter($routesArray);
-
-/*=============================================
-Limpiar la Url de variables GET
-=============================================*/
-foreach ($routesArray as $key => $value) {
-
-    $value = explode("?", $value)[0];
-    $routesArray[$key] = $value;
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,7 +97,7 @@ foreach ($routesArray as $key => $value) {
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="views/assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Alexander Pierce</a>
@@ -131,7 +111,7 @@ foreach ($routesArray as $key => $value) {
                with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="/" class="nav-link <?php if (empty($routesArray)) : ?>active<?php endif ?>">
+                            <a href="/" class="nav-link >">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Home
@@ -140,7 +120,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="admins" class="nav-link <?php if ($routesArray[1] == "admins") : ?>active<?php endif ?>">
+                            <a href="admins" class="nav-link ">
                                 <i class="nav-icon fas fa-tasks"></i>
                                 <p>
                                     Admins
@@ -149,7 +129,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/users" class="nav-link <?php if ($routesArray[1] == "users") : ?>active<?php endif ?>">
+                            <a href="/users" class="nav-link ">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Users
@@ -158,7 +138,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/stores" class="nav-link <?php if ($routesArray[1] == "stores") : ?>active<?php endif ?>">
+                            <a href="/stores" class="nav-link ">
                                 <i class="nav-icon fas fa-store"></i>
                                 <p>
                                     Stores
@@ -167,7 +147,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/categories" class="nav-link <?php if ($routesArray[1] == "categories") : ?>active<?php endif ?>">
+                            <a href="/categories" class="nav-link ">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Categories
@@ -176,7 +156,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/subcategories" class="nav-link <?php if ($routesArray[1] == "subcategories") : ?>active<?php endif ?>">
+                            <a href="/subcategories" class="nav-link ">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Sub-Categories
@@ -185,7 +165,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/products" class="nav-link <?php if ($routesArray[1] == "products") : ?>active<?php endif ?>">
+                            <a href="/products" class="nav-link ">
                                 <i class="nav-icon fas fa-shopping-bag"></i>
                                 <p>
                                     Products
@@ -194,7 +174,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/orders" class="nav-link <?php if ($routesArray[1] == "orders") : ?>active<?php endif ?>">
+                            <a href="/orders" class="nav-link ">
                                 <i class="nav-icon fas fa-shopping-basket"></i>
                                 <p>
                                     Orders
@@ -203,7 +183,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/sales" class="nav-link <?php if ($routesArray[1] == "sales") : ?>active<?php endif ?>">
+                            <a href="/sales" class="nav-link ">
                                 <i class="nav-icon fas fa-shopping-cart"></i>
                                 <p>
                                     Sales
@@ -212,7 +192,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/disputes" class="nav-link <?php if ($routesArray[1] == "disputes") : ?>active<?php endif ?>">
+                            <a href="/disputes" class="nav-link ">
                                 <i class="nav-icon fas fa-comment-alt"></i>
                                 <p>
                                     Disputes
@@ -221,7 +201,7 @@ foreach ($routesArray as $key => $value) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="/messages" class="nav-link <?php if ($routesArray[1] == "messages") : ?>active<?php endif ?>">
+                            <a href="/messages" class="nav-link ">
                                 <i class="nav-icon fas fa-comments"></i>
                                 <p>
                                     Messages
@@ -235,7 +215,6 @@ foreach ($routesArray as $key => $value) {
             </div>
             <!-- /.sidebar -->
         </aside>
-
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
