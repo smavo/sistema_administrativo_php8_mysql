@@ -134,3 +134,5 @@ Stack trace:
 #2 C:\xampp\htdocs\admin_sistema\index.php(18): TemplateController->index()
 #3 {main}
   thrown in C:\xampp\htdocs\admin_sistema\views\pages\login\login.php on line 48
+[22-Jan-2023 04:51:04 Europe/Berlin] PHP Warning:  Attempt to read property "rol_user" on string in C:\xampp\htdocs\admin_sistema\controllers\admins.controller.php on line 28
+[22-Jan-2023 04:51:39 Europe/Berlin] PHP Warning:  Attempt to read property "rol_user" on string in C:\xampp\htdocs\admin_sistema\controllers\admins.controller.php on line 28

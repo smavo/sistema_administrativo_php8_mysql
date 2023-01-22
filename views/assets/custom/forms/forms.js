@@ -29,3 +29,31 @@ function validateJS(event, type){
   }
 
 }
+
+/*====== Función para recordar credenciales de ingreso ======*/
+function rememberMe(event){
+  
+  if(event.target.checked){
+    localStorage.setItem("emailRemember", $('[name="loginEmail"]').val());
+    /* localStorage.setItem("passwordRemember", $('[name="loginPassword"]').val()); */
+    localStorage.setItem("checkRemember", true);
+  }else{
+    localStorage.removeItem("emailRemember");
+    localStorage.removeItem("checkRemember");
+  }
+
+}
+
+/*====== Capturar el email para login desde el LocalStorage ======*/
+$(document).ready(function(){
+
+  if(localStorage.getItem("emailRemember") != null){
+     $('[name="loginEmail"]').val(localStorage.getItem("emailRemember"));
+    /* $('[name="loginPassword"]').val(localStorage.getItem("passwordRemember")); */
+  }
+
+  if(localStorage.getItem("checkRemember") != null && localStorage.getItem("checkRemember")){
+    $('#remember').attr("checked",true);
+  }
+})
+

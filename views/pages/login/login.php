@@ -44,18 +44,15 @@
           </div>
 
             <?php 
-
                 require_once "controllers/admins.controller.php";
-
                 $login = new AdminsController();
                 $login->login();
-
             ?>
 
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
-                <input type="checkbox" id="remember" >
+                <input type="checkbox" id="remember" onchange="rememberMe(event)">
                 <label for="remember">
                   Remember Me
                 </label>
