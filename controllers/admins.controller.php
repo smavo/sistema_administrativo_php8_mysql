@@ -21,7 +21,20 @@ class AdminsController{
 
                 $response = CurlController::request($url,$method,$fields);
 
+                /*===== Validamos que si escriba correctamente los datos =====*/
+				if($response->status == 200){
 
+					/*===== Validamos que si tenga rol administrativo =====*/	
+					if($response->results[0]->rol_user != "admin"){
+						echo ' <div class="alert alert-danger">No tienes permisos para acceder</div>';
+						return;
+					}
+
+
+
+				}else{
+					echo '<div class="alert alert-danger">'.$response->results.'</div>';
+				}
 
 			}else{
 				echo '<div class="alert alert-danger">Error en la sintaxis de campo</div>';
