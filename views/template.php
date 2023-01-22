@@ -1,9 +1,15 @@
-<?php 
-
+<?php
+/*===== Capturar las rutas de la URL =====*/
 $routesArray = explode("/", $_SERVER['REQUEST_URI']);
 $routesArray = array_filter($routesArray);
 /* echo '<pre>'; print_r($routesArray); echo '</pre>';
  */
+
+/*===== Limpiar la Url de variables GET  =====*/
+foreach ($routesArray as $key => $value) {
+    $value = explode("?", $value)[0];
+    $routesArray[$key] = $value;
+}
 
 ?>
 
@@ -41,58 +47,72 @@ $routesArray = array_filter($routesArray);
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-    <!-- Site wrapper -->
-    <div class="wrapper">
+    <?php
 
-        <!-- Navbar -->
-        <?php include "views/modules/navbar.php"; ?>
+    if (!isset($_SESSION["admin"])) {
+        include "views/pages/login/login.php";
+        echo '</body></head>';
+        return;
+    }
 
-        <!-- Main Sidebar Container -->
-        <?php include "views/modules/sidebar.php"; ?>
+    ?>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+    <?php if (isset($_SESSION["admin"])) : ?>
 
-            <?php
+        <!-- Site wrapper -->
+        <div class="wrapper">
 
-            echo '<pre>'; print_r($routesArray); echo '</pre>';
+            <!-- Navbar -->
+            <?php include "views/modules/navbar.php"; ?>
 
-            if (!empty($routesArray[1])) {
+            <!-- Main Sidebar Container -->
+            <?php include "views/modules/sidebar.php"; ?>
 
-                if($routesArray[1] == "admins" ||
-                    $routesArray[1] == "users" ||
-                    $routesArray[1] == "stores" ||
-                    $routesArray[1] == "categories" ||
-                    $routesArray[1] == "subcategories" ||
-                    $routesArray[1] == "products" ||
-                    $routesArray[1] == "orders" ||
-                    $routesArray[1] == "sales" ||
-                    $routesArray[1] == "disputes" ||
-                    $routesArray[1] == "messages") {
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
 
-                    include "views/pages/".$routesArray[1]."/".$routesArray[1].".php";
-                
+                <?php
+                /* echo '<pre>'; print_r($routesArray); echo '</pre>'; */
+
+                if (!empty($routesArray[1])) {
+
+                    if (
+                        $routesArray[1] == "admins" ||
+                        $routesArray[1] == "users" ||
+                        $routesArray[1] == "stores" ||
+                        $routesArray[1] == "categories" ||
+                        $routesArray[1] == "subcategories" ||
+                        $routesArray[1] == "products" ||
+                        $routesArray[1] == "orders" ||
+                        $routesArray[1] == "sales" ||
+                        $routesArray[1] == "disputes" ||
+                        $routesArray[1] == "messages"
+                    ) {
+
+                        include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
+                    } else {
+
+                        include "views/pages/404/404.php";
+                    }
                 } else {
 
-                    include "views/pages/404/404.php";
+                    include "views/pages/home/home.php";
                 }
-            } else {
 
-                include "views/pages/home/home.php";
-            }
+                ?>
+                <!-- Content Header (Page header) -->
 
-            ?>
-            <!-- Content Header (Page header) -->
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
 
-            <!-- /.content -->
+            <!-- Footer -->
+            <?php include "views/modules/footer.php"; ?>
+
         </div>
-        <!-- /.content-wrapper -->
+        <!-- ./wrapper -->
 
-        <!-- Footer -->
-        <?php include "views/modules/footer.php"; ?>
-
-    </div>
-    <!-- ./wrapper -->
+    <?php endif ?>
 
 </body>
 
