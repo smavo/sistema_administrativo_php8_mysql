@@ -29,12 +29,8 @@
 
           <div class="input-group mb-3">
             
-            <input 
-            type="password" 
-            class="form-control" 
-            placeholder="Password"
-            name="loginPassword"
-            required>
+            <input type="password" class="form-control" 
+            placeholder="Password" name="loginPassword" required>
 
             <div class="input-group-append">
               <div class="input-group-text">
@@ -47,7 +43,14 @@
 
           </div>
 
+            <?php 
 
+                require_once "controllers/admins.controller.php";
+
+                $login = new AdminsController();
+                $login->login();
+
+            ?>
 
           <div class="row">
             <div class="col-8">
