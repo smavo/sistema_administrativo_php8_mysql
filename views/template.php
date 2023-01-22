@@ -1,3 +1,12 @@
+<?php 
+
+$routesArray = explode("/", $_SERVER['REQUEST_URI']);
+$routesArray = array_filter($routesArray);
+/* echo '<pre>'; print_r($routesArray); echo '</pre>';
+ */
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +52,37 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+
+            <?php
+
+            echo '<pre>'; print_r($routesArray); echo '</pre>';
+
+            if (!empty($routesArray[1])) {
+
+                if($routesArray[1] == "admins" ||
+                    $routesArray[1] == "users" ||
+                    $routesArray[1] == "stores" ||
+                    $routesArray[1] == "categories" ||
+                    $routesArray[1] == "subcategories" ||
+                    $routesArray[1] == "products" ||
+                    $routesArray[1] == "orders" ||
+                    $routesArray[1] == "sales" ||
+                    $routesArray[1] == "disputes" ||
+                    $routesArray[1] == "messages") {
+
+                    include "views/pages/".$routesArray[1]."/".$routesArray[1].".php";
+                
+                } else {
+
+                    include "views/pages/404/404.php";
+                }
+            } else {
+
+                include "views/pages/home/home.php";
+            }
+
+            ?>
+            <!-- Content Header (Page header) -->
 
             <!-- /.content -->
         </div>
