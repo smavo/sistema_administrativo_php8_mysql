@@ -88,8 +88,8 @@ foreach ($routesArray as $key => $value) {
                         $routesArray[1] == "orders" ||
                         $routesArray[1] == "sales" ||
                         $routesArray[1] == "disputes" ||
-                        $routesArray[1] == "messages"
-                    ) {
+                        $routesArray[1] == "messages"||
+                        $routesArray[1] == "logout"){
 
                         include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
                     } else {
