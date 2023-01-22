@@ -6,14 +6,14 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Inicie sesión para iniciar en el sistemas</p>
 
-        <form method="post" class="needs-validation" novalidate>
+        <form method="post" class="needs-validation" novalidate> 
 
           <div class="input-group mb-3">
             
             <input 
-            type="email" class="form-control" placeholder="Email"  name="loginEmail"  onchange=""
+            type="email" class="form-control" placeholder="Email"  name="loginEmail"  onchange="validateJS(event, 'email')"
             required>
 
             <div class="input-group-append">
@@ -22,8 +22,8 @@
               </div>
             </div>
 
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div class="valid-feedback">Válido</div>
+            <div class="invalid-feedback">Llenar correctamente este campo</div>
 
           </div>
 
@@ -38,8 +38,8 @@
               </div>
             </div>
 
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div class="valid-feedback">Válido</div>
+            <div class="invalid-feedback">Llenar correctamente este campo</div>
 
           </div>
 
@@ -81,4 +81,5 @@
 <!-- jQuery -->
 </div>
 
+<!-- Validaciones del formulario de login -->
 <script src="views/assets/custom/forms/forms.js"></script>
