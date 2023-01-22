@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /*===== Capturar las rutas de la URL =====*/
 $routesArray = explode("/", $_SERVER['REQUEST_URI']);
 $routesArray = array_filter($routesArray);
@@ -48,7 +50,7 @@ foreach ($routesArray as $key => $value) {
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <?php
-
+    /* Validacion para ver si se han logeado en el sistema */
     if (!isset($_SESSION["admin"])) {
         include "views/pages/login/login.php";
         echo '</body></head>';

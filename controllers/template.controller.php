@@ -8,4 +8,9 @@ class TemplateController{
 		include "views/template.php";
 	}	
 
+	/*===== Ruta para las imágenes del sistema =====*/
+	static public function srcImg(){
+		return "http://marketplace.com/";
+	}
+
 }
