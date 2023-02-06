@@ -18,7 +18,7 @@ class CurlController{
 		  CURLOPT_CUSTOMREQUEST => $method,
 		  CURLOPT_POSTFIELDS => $fields,
 		  CURLOPT_HTTPHEADER => array(
-		    'Authorization: c5LTA6WPbMwHhEabYu77nN9cn4VcMj'
+		    'Authorization: c5LTA6WPbMwHhEabYu771nd11smart'
 		  ),
 		));
 

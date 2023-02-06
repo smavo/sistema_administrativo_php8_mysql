@@ -10,14 +10,18 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
 
           <?php if ($_SESSION["admin"]->picture_user == null): ?>
-              <img src="<?php echo TemplateController::srcImg()?>views/img/users/default/default.png" class="img-circle elevation-2" alt="User Image">
-            <?php else: ?>
+
+                <img src="<?php echo TemplateController::srcImg()?>views/img/users/default/default.png" class="img-circle elevation-2" alt="User Image">
+
+          <?php else: ?>
+
               <img src="<?php echo TemplateController::srcImg()?>views/img/users/<?php echo $_SESSION["admin"]->id_user ?>/<?php echo $_SESSION["admin"]->picture_user ?>" class="img-circle elevation-2" alt="User Image">
           <?php endif ?>   
+                 
         </div>
-
         <div class="info">
           <a href="#" class="d-block"><?php echo $_SESSION["admin"]->displayname_user ?></a>
         </div>

@@ -9,9 +9,12 @@ $routesArray = array_filter($routesArray);
 
 /*===== Limpiar la Url de variables GET  =====*/
 foreach ($routesArray as $key => $value) {
+
     $value = explode("?", $value)[0];
     $routesArray[$key] = $value;
-}
+    
+    
+  }
 
 ?>
 
@@ -53,7 +56,7 @@ foreach ($routesArray as $key => $value) {
     /* Validacion para ver si se han logeado en el sistema */
     if (!isset($_SESSION["admin"])) {
         include "views/pages/login/login.php";
-        echo '</body></head>';
+            echo '</body></head>';
         return;
     }
 
@@ -91,7 +94,7 @@ foreach ($routesArray as $key => $value) {
                         $routesArray[1] == "messages"||
                         $routesArray[1] == "logout"){
 
-                        include "views/pages/" . $routesArray[1] . "/" . $routesArray[1] . ".php";
+                        include "views/pages/".$routesArray[1]."/".$routesArray[1].".php";
                     } else {
 
                         include "views/pages/404/404.php";
